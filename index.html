@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LionRose | Creative Solutions for Dynamic Times</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:    #0a0a0a;
+      --dark:     #111111;
+      --card-bg:  #161616;
+      --silver:   #d0d0d0;
+      --silver-lt:#f0f0f0;
+      --red:      #c41e3a;
+      --white:    #f0ece4;
+      --muted:    #888880;
+      --border:   rgba(200,200,200,0.13);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Lato', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 3rem; background: #ffffff; border-bottom: 1px solid #e8e8e8; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
+    .nav-logo { font-family: 'Cinzel', serif; font-size: 1.15rem; letter-spacing: 0.15em; color: #111111; text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: #1a1a1a; text-decoration: none; font-size: 0.73rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--red); }
+    #hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 5rem; background: var(--black); overflow: hidden; }
+    .hero-logo { display: none; }
+    .hero-content { position: relative; z-index: 2; }
+    @keyframes up { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+    .hero-name { font-family: 'Cinzel', serif; font-size: clamp(2.8rem, 8vw, 6rem); font-weight: 900; letter-spacing: 0.08em; line-height: 1; color: var(--white); animation: up 1s 0.15s ease both; }
+    .hero-name span { color: var(--silver); }
+    .hero-tag { margin-top: 1rem; font-size: clamp(0.75rem, 2vw, 0.95rem); letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); animation: up 1s 0.3s ease both; }
+    .divider { margin: 2rem auto; width: 50px; height: 1px; background: linear-gradient(to right, transparent, var(--silver), transparent); animation: up 1s 0.4s ease both; }
+    .hero-desc { max-width: 540px; font-size: 1rem; color: #9a9490; animation: up 1s 0.5s ease both; }
+    .btn-group { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; animation: up 1s 0.7s ease both; }
+    .btn { padding: 0.85rem 2.2rem; font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; border: 1px solid; transition: all 0.25s; display: inline-block; }
+    .btn-primary { background: var(--silver); border-color: var(--silver); color: #0a0a0a; font-weight: 700; }
+    .btn-primary:hover { background: var(--silver-lt); }
+    .btn-secondary { background: transparent; border-color: var(--silver); color: var(--silver); }
+    .btn-secondary:hover { background: rgba(200,200,200,0.08); }
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .sec-label { font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--red); margin-bottom: 0.6rem; }
+    .sec-title { font-family: 'Cinzel', serif; font-size: clamp(1.7rem, 4vw, 2.6rem); font-weight: 600; color: var(--white); line-height: 1.15; }
+    .sec-title span { color: var(--silver); }
+    .sec-sub { margin-top: 1rem; max-width: 520px; color: var(--muted); font-size: 0.95rem; }
+    .silver-line { width: 48px; height: 2px; background: var(--silver); margin: 1.4rem 0; }
+    #ai { background: var(--dark); }
+    .ai-header { text-align: center; margin-bottom: 4rem; }
+    .ai-header .silver-line { margin: 1.4rem auto; }
+    .ai-header .sec-sub { margin: 0 auto; text-align: center; }
+    .ai-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .ai-card { background: var(--card-bg); padding: 2.5rem 2rem; position: relative; overflow: hidden; transition: background 0.3s; }
+    .ai-card:hover { background: #1c1c1c; }
+    .ai-card::after { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: linear-gradient(to bottom, var(--red), var(--silver)); transform: scaleY(0); transform-origin: top; transition: transform 0.35s; }
+    .ai-card:hover::after { transform: scaleY(1); }
+    .ai-icon { font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--silver); }
+    .ai-card h3 { font-family: 'Cinzel', serif; font-size: 0.93rem; letter-spacing: 0.1em; color: var(--silver); margin-bottom: 0.8rem; }
+    .ai-card p { font-size: 0.87rem; color: #888880; line-height: 1.7; }
+    #services { background: var(--black); }
+    .services-header { text-align: center; margin-bottom: 4rem; }
+    .services-header .silver-line { margin: 1.4rem auto; }
+    .services-header .sec-sub { margin: 0 auto; text-align: center; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
+    .service-card { background: var(--card-bg); padding: 2.5rem 2rem; position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+    .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(to right, var(--red), var(--silver)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .s-icon { font-size: 1.8rem; margin-bottom: 1.2rem; }
+    .service-card h3 { font-family: 'Cinzel', serif; font-size: 0.93rem; letter-spacing: 0.1em; color: var(--silver); margin-bottom: 1rem; }
+    .service-card p { font-size: 0.87rem; color: #888880; line-height: 1.7; }
+    .tag-list { margin-top: 1.4rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag { font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.22rem 0.6rem; border: 1px solid var(--border); color: var(--muted); }
+    #clients { background: var(--dark); text-align: center; }
+    .clients-header { margin-bottom: 3.5rem; }
+    .clients-header .silver-line { margin: 1.4rem auto; }
+    .clients-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem 3.5rem; }
+    .client-name { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: #555; transition: color 0.25s; cursor: default; }
+    .client-name:hover { color: var(--silver); }
+    #approach { background: var(--black); text-align: center; }
+    .approach-grid { margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+    .approach-item { padding: 2rem 1.5rem; border-top: 1px solid var(--border); }
+    .approach-num { font-family: 'Cinzel', serif; font-size: 2.5rem; color: rgba(200,200,200,0.1); font-weight: 900; }
+    .approach-item h4 { font-family: 'Cinzel', serif; font-size: 0.88rem; letter-spacing: 0.12em; color: var(--silver); margin: 0.8rem 0 0.6rem; }
+    .approach-item p { font-size: 0.83rem; color: var(--muted); }
+    #about { background: var(--dark); }
+    .about-intro { max-width: 720px; margin: 0 auto 5rem; }
+    .about-crest { display: none; }
+    .about-stats { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .stat-item h4 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--silver); }
+    .stat-item p { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.3rem; }
+    .team-label { font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.25em; color: var(--silver); text-align: center; margin-bottom: 2.5rem; text-transform: uppercase; }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .team-card { background: var(--card-bg); border: 1px solid var(--border); overflow: hidden; }
+    .team-photo { width: 100%; height: 150px; object-fit: cover; object-position: top center; filter: grayscale(25%); display: block; }
+    .team-photo-placeholder { width: 100%; height: 150px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 2rem; color: #2a2a2a; }
+    .team-info { padding: 1.8rem 2rem; }
+    .team-info h3 { font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 0.08em; color: var(--white); }
+    .team-role { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin: 0.3rem 0 1rem; }
+    .team-info p { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
+    .team-link { display: inline-block; margin-top: 1.2rem; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--silver); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .team-link:hover { color: var(--silver-lt); border-color: var(--silver); }
+    #contact { background: var(--black); }
+    .contact-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+    .contact-inner .sec-sub { margin: 0 auto 2.5rem; text-align: center; }
+    .contact-inner .silver-line { margin: 1.4rem auto; }
+    .contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
+    @media (max-width: 560px) { .contact-cards { grid-template-columns: 1fr; } }
+    .contact-card { padding: 2rem; border: 1px solid var(--border); background: var(--card-bg); text-align: left; }
+    .cc-label { font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-bottom: 0.5rem; }
+    .contact-card a { font-family: 'Cinzel', serif; font-size: 0.82rem; letter-spacing: 0.05em; color: var(--silver); text-decoration: none; }
+    .contact-card a:hover { color: var(--silver-lt); text-decoration: underline; }
+    .contact-card p { font-size: 0.77rem; color: var(--muted); margin-top: 0.4rem; }
+    .contact-note { margin-top: 1rem; font-size: 0.68rem; color: #3a3a3a; letter-spacing: 0.04em; }
+    footer { padding: 2rem 3rem; border-top: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; }
+    .footer-name { font-family: 'Cinzel', serif; font-size: 0.88rem; letter-spacing: 0.15em; color: var(--silver); }
+    .footer-copy { font-size: 0.7rem; color: #444; letter-spacing: 0.06em; }
+    .footer-small { font-size: 0.62rem; color: #2e2e2e; letter-spacing: 0.06em; margin-top: 0.2rem; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+    @media (max-width: 640px) { nav { padding: 1rem 1.5rem; } .nav-links { gap: 1.2rem; } .nav-links a { font-size: 0.66rem; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="#">LionRose</a>
+  <ul class="nav-links">
+    <li><a href="#ai">AI Solutions</a></li>
+    <li><a href="#services">Human Resources</a></li>
+    <li><a href="#media">Media &amp; Content</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<section id="hero">
+  <div class="hero-content">
+  <h1 class="hero-name">Lion<span>Rose</span></h1>
+  <p class="hero-tag">Creative Solutions for Dynamic Times</p>
+  <div class="divider"></div>
+  <p class="hero-desc">Delivering integrated solutions across AI development, web, human resources, media, and production.</p>
+  <div class="btn-group">
+    <a class="btn btn-primary" href="#services">Explore</a>
+    <a class="btn btn-secondary" href="#contact">Get In Touch</a>
+  </div>
+  </div>
+</section>
+<section id="services" style="scroll-margin-top:60px"><span id="hr"></span><span id="media"></span>
+  <div class="container">
+    <div class="services-header">
+      <p class="sec-label">What We Do</p>
+      <h2 class="sec-title">Integrated solutions for a <span>changing world</span>.</h2>
+      <div class="silver-line"></div>
+      <p class="sec-sub">Every service is designed to connect - to your strategy, your team, your technology, and your audience.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><div class="s-icon">&#9776;</div><h3>Web Development</h3><p>Custom websites, web applications, and digital experiences engineered to perform and built to scale.</p><ul class="tag-list"><li class="tag">Custom Sites</li><li class="tag">Web Apps</li><li class="tag">UI/UX</li><li class="tag">E-Commerce</li></ul></div>
+      <div class="service-card"><div class="s-icon">&#9889;</div><h3>Human Resources</h3><p>Strategic recruiting, onboarding systems, compensation analysis, and full-cycle HR consulting. We build elite teams and the infrastructure to support them long-term.</p><ul class="tag-list"><li class="tag">Recruiting</li><li class="tag">Onboarding</li><li class="tag">Comp Analysis</li><li class="tag">Hiring Assistance</li><li class="tag">Compliance</li></ul></div>
+      <div class="service-card"><div class="s-icon">&#9670;</div><h3>Media Consulting</h3><p>Brand strategy, content direction, platform positioning, and creative campaign development.</p><ul class="tag-list"><li class="tag">Brand Strategy</li><li class="tag">Content</li><li class="tag">Campaigns</li><li class="tag">Platforms</li></ul></div>
+      <div class="service-card"><div class="s-icon">&#9654;</div><h3>Production</h3><p>Full-service video, audio, and multimedia production. From concept to final delivery.</p><ul class="tag-list"><li class="tag">Video</li><li class="tag">Audio</li><li class="tag">Post-Production</li><li class="tag">Direction</li></ul></div>
+    </div>
+  </div>
+</section>
+<section id="ai">
+  <div class="container">
+    <div class="ai-header">
+      <p class="sec-label">AI Solutions</p>
+      <h2 class="sec-title">Intelligent solutions for a <span>world that doesn't wait</span>.</h2>
+      <div class="silver-line"></div>
+      <p class="sec-sub">AI isn't coming - it's here. LionRose builds, integrates, and deploys AI solutions that give your business a measurable edge.</p>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-card"><div class="ai-icon">&#9675;</div><h3>AI Solution Creation</h3><p>Custom AI tools, intelligent chatbots, and automation systems built from the ground up for your specific workflows, industry, and goals. We don't fit you into a template - we build for you.</p></div>
+      <div class="ai-card"><div class="ai-icon">&#8644;</div><h3>AI Integration</h3><p>Embedding AI into your existing software, platforms, and business processes. CRM automation, document intelligence, decision-support systems - we integrate without disruption.</p></div>
+      <div class="ai-card"><div class="ai-icon">&#9670;</div><h3>AI Strategy &amp; Consulting</h3><p>Not sure where AI fits? We map your processes, identify high-value automation opportunities, and deliver a phased implementation plan that generates ROI from day one.</p></div>
+      <div class="ai-card"><div class="ai-icon">&#9654;</div><h3>AI-Enhanced Media &amp; Production</h3><p>AI-powered content generation, intelligent post-production workflows, and distribution strategy. We accelerate creative output without sacrificing quality or brand voice.</p></div>
+    </div>
+  </div>
+</section>
+<section id="approach">
+  <div class="container">
+    <p class="sec-label">How We Work</p>
+    <h2 class="sec-title">Precision at <span>every stage</span>.</h2>
+    <div class="approach-grid">
+      <div class="approach-item"><div class="approach-num">01</div><h4>Understand</h4><p>We start with your goals, constraints, and vision. No assumptions, no templates.</p></div>
+      <div class="approach-item"><div class="approach-num">02</div><h4>Strategize</h4><p>A clear plan built around outcomes. Every decision is intentional and defensible.</p></div>
+      <div class="approach-item"><div class="approach-num">03</div><h4>Execute</h4><p>We deliver with the urgency of a startup and the discipline of an enterprise.</p></div>
+      <div class="approach-item"><div class="approach-num">04</div><h4>Elevate</h4><p>We don't hand off and disappear. We refine, optimize, and grow alongside you.</p></div>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <div class="container">
+    <div class="about-intro">
+      <div class="about-text">
+        <p class="sec-label">About LionRose</p>
+        <h2 class="sec-title">The precision of a boardroom.<br>The <span>creativity</span> of a studio.</h2>
+        <div class="silver-line"></div>
+        <p class="sec-sub">LionRose Entertainment Inc. is a Los Angeles-based creative and consulting firm founded on the belief that bold vision and disciplined execution are not opposites - they are partners.</p>
+        <p class="sec-sub" style="margin-top:1rem;">We partner with businesses, talent, and organizations to deliver integrated solutions across AI, web development, human resources, media consulting, and production. Whatever the brief, the standard is always the same.</p>
+        <div class="about-stats">
+          <div class="stat-item"><h4>LA</h4><p>Los Angeles Based</p></div>
+          <div class="stat-item"><h4>5+</h4><p>Service Verticals</p></div>
+          <div class="stat-item"><h4>AI</h4><p>Future-Ready Solutions</p></div>
+          <div class="stat-item"><h4>&#8734;</h4><p>Industries Served</p></div>
+        </div>
+      </div>
+    </div>
+    <p class="team-label">Leadership</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo-placeholder">LG</div>
+        <div class="team-info"><h3>Leonardo Genzon</h3><p class="team-role">Chief Executive Officer</p><p>Leonardo Genzon leads LionRose's creative and consulting practice across AI development, web, HR solutions, media, and production.</p><a class="team-link" href="https://leonardogenzon.com" target="_blank" rel="noopener">leonardogenzon.com &rarr;</a></div>
+      </div>
+      <div class="team-card">
+        <img class="team-photo" src="https://howardgenzonlaw.com/wp-content/uploads/2025/12/96e58835574fbfa9.jpeg" alt="Rosa Martinez-Genzon" onerror="this.outerHTML='<div class=team-photo-placeholder>RG</div>'" />
+        <div class="team-info"><h3>Rosa Martinez-Genzon</h3><p class="team-role">Chief Strategy Officer</p><p>With over 20 years of experience in complex litigation and strategic advisory, Rosa brings rigorous analytical discipline to LionRose's engagements.</p><a class="team-link" href="https://howardgenzonlaw.com/attorneys/rosa-martinez-genzon/" target="_blank" rel="noopener">Howard | Genzon LLP &rarr;</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="clients">
+  <div class="container">
+    <div class="clients-header"><p class="sec-label">Who We Work With</p><h2 class="sec-title">Select <span>Clients</span></h2><div class="silver-line"></div></div>
+    <div class="clients-row">
+      <span class="client-name">Haymaker</span><span class="client-name">Done &amp; Done</span><span class="client-name">Shed Media</span><span class="client-name">51 Minds</span><span class="client-name">Truly Original</span><span class="client-name">World of Wonder</span><span class="client-name">9th Degree</span><span class="client-name">Little Bit Vague</span><span class="client-name">Evolution</span><span class="client-name">ISH Development</span><span class="client-name">AMGart</span><span class="client-name">Rail Productions</span><span class="client-name">Howard | Genzon LLP</span><span class="client-name">City of Hope</span>
+    </div>
+  </div>
+</section>
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <p class="sec-label">Get In Touch</p>
+      <h2 class="sec-title">Let's build something <span>bold</span>.</h2>
+      <div class="silver-line"></div>
+      <p class="sec-sub">Whether you're starting a project, building a team, integrating AI, or figuring out your next move - reach out. We respond.</p>
+      <div class="contact-cards">
+        <div class="contact-card"><div class="cc-label">General Inquiries</div><a href="mailto:info@lionrose.ai">info@lionrose.ai</a><p>Projects, partnerships, and everything else.</p></div>
+        <div class="contact-card"><div class="cc-label">Careers &amp; Opportunities</div><a href="mailto:careers@lionrose.ai">careers@lionrose.ai</a><p>Join the team or submit a candidate.</p></div>
+      </div>
+      <div style="margin-top:2.5rem;"><a class="btn btn-primary" href="mailto:info@lionrose.ai">Send a Message</a></div>
+      <p class="contact-note">Opens your email client addressed to info@lionrose.ai</p>
+    </div>
+  </div>
+</section>
+<footer>
+  <span class="footer-name">LionRose Entertainment Inc.</span>
+  <span class="footer-copy">&copy; 2026 LionRose - lionrose.ai</span>
+  <span class="footer-small">Los Angeles, California &nbsp;&bull;&nbsp; 310.994.9025 &nbsp;&bull;&nbsp; info@lionrose.ai</span>
+</footer>
+</body>
+</html>
