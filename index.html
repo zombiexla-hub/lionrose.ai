@@ -64,10 +64,12 @@
     .services-header .silver-line { margin: 1.4rem auto; }
     .services-header .sec-sub { margin: 0 auto; text-align: center; }
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
-    .service-card { background: var(--card-bg); padding: 2.5rem 2rem; position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+    .service-card { background: var(--card-bg); padding: 2.5rem 2rem; position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; display: block; text-decoration: none; color: inherit; cursor: pointer; }
     .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(to right, var(--red), var(--silver)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
     .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
     .service-card:hover::before { transform: scaleX(1); }
+    .service-card-arrow { display: block; margin-top: 1.4rem; font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+    .service-card:hover .service-card-arrow { color: var(--silver); }
     .s-icon { font-size: 1.8rem; margin-bottom: 1.2rem; }
     .service-card h3 { font-family: 'Cinzel', serif; font-size: 0.93rem; letter-spacing: 0.1em; color: var(--silver); margin-bottom: 1rem; }
     .service-card p { font-size: 0.87rem; color: #888880; line-height: 1.7; }
@@ -116,8 +118,8 @@
     .contact-note { margin-top: 1rem; font-size: 0.68rem; color: #3a3a3a; letter-spacing: 0.04em; }
     footer { padding: 2rem 3rem; border-top: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; }
     .footer-name { font-family: 'Cinzel', serif; font-size: 0.88rem; letter-spacing: 0.15em; color: var(--silver); }
-    .footer-copy { font-size: 0.7rem; color: #444; letter-spacing: 0.06em; }
-    .footer-small { font-size: 0.62rem; color: #2e2e2e; letter-spacing: 0.06em; margin-top: 0.2rem; }
+    .footer-copy { font-size: 0.7rem; color: #aaa; letter-spacing: 0.06em; }
+    .footer-small { font-size: 0.62rem; color: #888; letter-spacing: 0.06em; margin-top: 0.2rem; }
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--black); }
     ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
@@ -157,10 +159,10 @@
       <p class="sec-sub">Every service is designed to connect - to your strategy, your team, your technology, and your audience.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card"><div class="s-icon">&#9776;</div><h3>Web Development</h3><p>Custom websites, web applications, and digital experiences engineered to perform and built to scale.</p><ul class="tag-list"><li class="tag">Custom Sites</li><li class="tag">Web Apps</li><li class="tag">UI/UX</li><li class="tag">E-Commerce</li></ul></div>
-      <div class="service-card"><div class="s-icon">&#9889;</div><h3>Human Resources</h3><p>Strategic recruiting, onboarding systems, compensation analysis, and full-cycle HR consulting. We build elite teams and the infrastructure to support them long-term.</p><ul class="tag-list"><li class="tag">Recruiting</li><li class="tag">Onboarding</li><li class="tag">Comp Analysis</li><li class="tag">Hiring Assistance</li><li class="tag">Compliance</li></ul></div>
-      <div class="service-card"><div class="s-icon">&#9670;</div><h3>Media Consulting</h3><p>Brand strategy, content direction, platform positioning, and creative campaign development.</p><ul class="tag-list"><li class="tag">Brand Strategy</li><li class="tag">Content</li><li class="tag">Campaigns</li><li class="tag">Platforms</li></ul></div>
-      <div class="service-card"><div class="s-icon">&#9654;</div><h3>Production</h3><p>Full-service video, audio, and multimedia production. From concept to final delivery.</p><ul class="tag-list"><li class="tag">Video</li><li class="tag">Audio</li><li class="tag">Post-Production</li><li class="tag">Direction</li></ul></div>
+      <a class="service-card" href="web.html"><div class="s-icon">&#9776;</div><h3>Web Development</h3><p>Custom websites, web applications, and digital experiences engineered to perform and built to scale.</p><ul class="tag-list"><li class="tag">Custom Sites</li><li class="tag">Web Apps</li><li class="tag">UI/UX</li><li class="tag">E-Commerce</li></ul><span class="service-card-arrow">Explore Web Dev &rarr;</span></a>
+      <a class="service-card" href="hr.html"><div class="s-icon">&#9889;</div><h3>Human Resources</h3><p>Strategic recruiting, onboarding systems, compensation analysis, and full-cycle HR consulting. We build elite teams and the infrastructure to support them long-term.</p><ul class="tag-list"><li class="tag">Recruiting</li><li class="tag">Onboarding</li><li class="tag">Comp Analysis</li><li class="tag">Hiring Assistance</li><li class="tag">Compliance</li></ul><span class="service-card-arrow">Explore HR &rarr;</span></a>
+      <a class="service-card" href="media.html"><div class="s-icon">&#9670;</div><h3>Media Consulting</h3><p>Brand strategy, content direction, platform positioning, and creative campaign development.</p><ul class="tag-list"><li class="tag">Brand Strategy</li><li class="tag">Content</li><li class="tag">Campaigns</li><li class="tag">Platforms</li></ul><span class="service-card-arrow">Explore Media &rarr;</span></a>
+      <a class="service-card" href="production.html"><div class="s-icon">&#9654;</div><h3>Production</h3><p>Full-service video, audio, and multimedia production. From concept to final delivery.</p><ul class="tag-list"><li class="tag">Video</li><li class="tag">Audio</li><li class="tag">Post-Production</li><li class="tag">Direction</li></ul><span class="service-card-arrow">Explore Production &rarr;</span></a>
     </div>
   </div>
 </section>
@@ -231,7 +233,7 @@
 </section>
 <footer>
   <span class="footer-name">LionRose Entertainment Inc.</span>
-  <span class="footer-copy">&copy; 2026 LionRose - lionrose.ai</span>
+  <span class="footer-copy">&copy; 2026 LionRose Entertainment Inc.</span>
   <span class="footer-small">Los Angeles, California &nbsp;&bull;&nbsp; 310.994.9025 &nbsp;&bull;&nbsp; info@lionrose.ai</span>
 </footer>
 </body>

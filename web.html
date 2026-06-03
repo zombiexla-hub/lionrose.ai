@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Development | LionRose</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:    #0a0a0a;
+      --dark:     #1e1e1e;
+      --card-bg:  #252525;
+      --silver:   #d0d0d0;
+      --silver-lt:#f0f0f0;
+      --red:      #c41e3a;
+      --white:    #f0ece4;
+      --muted:    #888880;
+      --border:   rgba(200,200,200,0.13);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Lato', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 3rem; background: #ffffff; border-bottom: 1px solid #e8e8e8; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
+    .nav-logo { font-family: 'Cinzel', serif; font-size: 1.15rem; letter-spacing: 0.15em; color: #111111; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a { color: #1a1a1a; text-decoration: none; font-size: 0.73rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--red); }
+    @keyframes up { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .page-hero { padding: 10rem 2rem 6rem; background: var(--black); text-align: center; border-bottom: 1px solid var(--border); }
+    .back-link { margin-bottom: 1.5rem; animation: up 0.5s ease both; }
+    .back-link a { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .back-link a:hover { color: var(--silver); }
+    .page-icon { font-size: 1.8rem; color: var(--silver); margin-bottom: 0.8rem; animation: up 0.5s 0.06s ease both; }
+    .page-title { font-family: 'Cinzel', serif; font-size: clamp(2rem, 5vw, 3.8rem); font-weight: 900; letter-spacing: 0.06em; line-height: 1.15; color: var(--white); animation: up 0.5s 0.12s ease both; }
+    .page-title span { color: var(--silver); }
+    .divider { margin: 1.8rem auto; width: 50px; height: 1px; background: linear-gradient(to right, transparent, var(--silver), transparent); animation: up 0.5s 0.18s ease both; }
+    .hero-desc { max-width: 540px; margin: 0 auto; font-size: 1rem; color: #9a9490; animation: up 0.5s 0.22s ease both; }
+    .btn-group { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; animation: up 0.5s 0.28s ease both; }
+    .btn { padding: 0.85rem 2.2rem; font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; border: 1px solid; transition: all 0.25s; display: inline-block; cursor: pointer; }
+    .btn-primary { background: var(--silver); border-color: var(--silver); color: #0a0a0a; font-weight: 700; }
+    .btn-primary:hover { background: var(--silver-lt); }
+    .btn-secondary { background: transparent; border-color: var(--silver); color: var(--silver); }
+    .btn-secondary:hover { background: rgba(200,200,200,0.08); }
+    .container { max-width: 1100px; margin: 0 auto; }
+    section { padding: 6rem 2rem; }
+    .sec-label { font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--red); margin-bottom: 0.6rem; }
+    .sec-title { font-family: 'Cinzel', serif; font-size: clamp(1.7rem, 4vw, 2.6rem); font-weight: 600; color: var(--white); line-height: 1.15; }
+    .sec-title span { color: var(--silver); }
+    .sec-sub { margin-top: 1rem; max-width: 600px; color: var(--muted); font-size: 0.95rem; }
+    .silver-line { width: 48px; height: 2px; background: var(--silver); margin: 1.4rem 0; }
+    #svc-detail { background: var(--dark); }
+    .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 2rem; margin-top: 3.5rem; }
+    .detail-card { background: var(--card-bg); border: 1px solid var(--border); padding: 2.5rem; position: relative; overflow: hidden; }
+    .detail-card::after { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: linear-gradient(to bottom, var(--red), var(--silver)); transform: scaleY(0); transform-origin: top; transition: transform 0.35s; }
+    .detail-card:hover::after { transform: scaleY(1); }
+    .dc-icon { font-size: 1.4rem; color: var(--silver); margin-bottom: 1rem; }
+    .dc-title { font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 0.1em; color: var(--silver); margin-bottom: 0.8rem; }
+    .dc-body { font-size: 0.87rem; color: var(--muted); line-height: 1.8; }
+    .tag-list { margin-top: 1.2rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag { font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.22rem 0.6rem; border: 1px solid var(--border); color: var(--muted); }
+    #work { background: var(--black); }
+    .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; margin-top: 3.5rem; }
+    .work-card { background: var(--card-bg); border: 1px solid var(--border); padding: 2.2rem; transition: transform 0.2s; position: relative; }
+    .work-card:hover { transform: translateY(-3px); }
+    .work-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(to right, var(--red), var(--silver)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+    .work-card:hover::before { transform: scaleX(1); }
+    .wc-label { font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-bottom: 0.4rem; }
+    .wc-title { font-family: 'Cinzel', serif; font-size: 0.95rem; letter-spacing: 0.08em; color: var(--silver); margin-bottom: 0.8rem; }
+    .wc-body { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
+    .wc-link { display: inline-block; margin-top: 1.2rem; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--silver); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .wc-link:hover { color: var(--silver-lt); border-color: var(--silver); }
+    #stack { background: var(--dark); }
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5px; background: var(--border); border: 1px solid var(--border); margin-top: 3.5rem; }
+    .stack-item { background: var(--card-bg); padding: 2rem 1.8rem; }
+    .stack-item h4 { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.12em; color: var(--silver); margin-bottom: 0.8rem; }
+    .stack-item p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+    #cta-band { background: var(--black); text-align: center; }
+    #cta-band .silver-line { margin: 1.4rem auto; }
+    #cta-band .sec-sub { margin: 0 auto 2rem; text-align: center; }
+    footer { padding: 2rem 3rem; border-top: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; }
+    .footer-name { font-family: 'Cinzel', serif; font-size: 0.88rem; letter-spacing: 0.15em; color: var(--silver); }
+    .footer-copy { font-size: 0.7rem; color: #aaa; letter-spacing: 0.06em; }
+    .footer-small { font-size: 0.62rem; color: #888; letter-spacing: 0.06em; margin-top: 0.2rem; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+    @media (max-width: 640px) { nav { padding: 1rem 1.5rem; } .nav-links { gap: 1rem; } .nav-links a { font-size: 0.65rem; } .detail-grid { grid-template-columns: 1fr; } .work-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">LionRose</a>
+  <ul class="nav-links">
+    <li><a href="web.html" class="active">Web Dev</a></li>
+    <li><a href="hr.html">HR</a></li>
+    <li><a href="media.html">Media</a></li>
+    <li><a href="production.html">Production</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-content">
+    <p class="back-link"><a href="/">&#8592; LionRose</a></p>
+    <p class="page-icon">&#9776;</p>
+    <h1 class="page-title">Engineered to <span>perform</span>.<br>Built to last.</h1>
+    <div class="divider"></div>
+    <p class="hero-desc">Custom websites, web applications, and digital experiences built from scratch. No templates, no shortcuts - just code that works.</p>
+    <div class="btn-group">
+      <a class="btn btn-primary" href="mailto:info@lionrose.ai">Start a Project</a>
+      <a class="btn btn-secondary" href="/#clients">See Clients</a>
+    </div>
+  </div>
+</div>
+
+<section id="svc-detail">
+  <div class="container">
+    <p class="sec-label">What We Build</p>
+    <h2 class="sec-title">Full-spectrum <span>digital development</span>.</h2>
+    <div class="silver-line"></div>
+    <p class="sec-sub">Every engagement starts with your goals. We design and build toward outcomes - not deliverables.</p>
+    <div class="detail-grid">
+      <div class="detail-card">
+        <div class="dc-icon">&#9776;</div>
+        <h3 class="dc-title">Custom Sites</h3>
+        <p class="dc-body">Your website is your first impression, your 24/7 salesperson, and your credibility in digital form. We build custom sites from the ground up - responsive, fast, and designed around your specific audience. Brochure sites, portfolios, service platforms - built to your brief, not a template. Every pixel has a reason.</p>
+        <ul class="tag-list"><li class="tag">Responsive Design</li><li class="tag">Performance Optimization</li><li class="tag">SEO Architecture</li><li class="tag">CMS Integration</li><li class="tag">Accessibility</li></ul>
+      </div>
+      <div class="detail-card">
+        <div class="dc-icon">&#9881;</div>
+        <h3 class="dc-title">Web Applications</h3>
+        <p class="dc-body">Complex problems need thoughtful architecture. Whether it's a customer portal, an internal dashboard, a multi-user SaaS platform, or an operational tool - we design and build web applications that scale. We work across the full stack, from UI to API to database, and deploy through production-grade CI/CD pipelines.</p>
+        <ul class="tag-list"><li class="tag">Full-Stack Dev</li><li class="tag">API Design</li><li class="tag">Database Architecture</li><li class="tag">Authentication</li><li class="tag">Real-Time Features</li></ul>
+      </div>
+      <div class="detail-card">
+        <div class="dc-icon">&#9670;</div>
+        <h3 class="dc-title">UI/UX Design</h3>
+        <p class="dc-body">Great design is invisible - it guides users where they need to go without friction. We combine user research, wireframing, and iterative prototyping to create interfaces that are intuitive, accessible, and on-brand. We build design systems that scale with your product so every new feature feels like it belongs.</p>
+        <ul class="tag-list"><li class="tag">User Research</li><li class="tag">Wireframing</li><li class="tag">Prototyping</li><li class="tag">Design Systems</li><li class="tag">Brand Alignment</li></ul>
+      </div>
+      <div class="detail-card">
+        <div class="dc-icon">&#128722;</div>
+        <h3 class="dc-title">E-Commerce</h3>
+        <p class="dc-body">We build commerce experiences that reduce friction and drive conversion. Custom storefronts, Shopify development, payment processing, inventory management, tax logic, and fulfillment integration - we handle the complexity so your customers never feel it. From boutique shops to high-volume catalog stores.</p>
+        <ul class="tag-list"><li class="tag">Custom Storefronts</li><li class="tag">Shopify</li><li class="tag">Payment Integration</li><li class="tag">Inventory Systems</li><li class="tag">Fulfillment Logic</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="container">
+    <p class="sec-label">Select Work</p>
+    <h2 class="sec-title">Projects we're <span>proud of</span>.</h2>
+    <div class="silver-line"></div>
+    <div class="work-grid">
+
+      <div class="work-card">
+        <p class="wc-label">LionRose Entertainment Inc.</p>
+        <h3 class="wc-title">lionrose.ai</h3>
+        <p class="wc-body">The site you're on. Designed and built from scratch with a full deployment pipeline - git-tracked, auto-deploying from GitHub to Netlify on every push. Custom CSS design system, Cinzel + Lato type system, fully responsive. Zero templates.</p>
+        <a class="wc-link" href="/">lionrose.ai &#8599;</a>
+      </div>
+
+      <div class="work-card">
+        <p class="wc-label">Art &amp; Photography</p>
+        <h3 class="wc-title">Last Payphone</h3>
+        <p class="wc-body">Digital archive and platform for a long-form documentary photography project. Custom gallery system, automated Instagram publishing pipeline, e-commerce integration, and a layered ARG experience woven through the site architecture.</p>
+        <a class="wc-link" href="https://lastpayphone.com" target="_blank">lastpayphone.com &#8599;</a>
+      </div>
+
+      <div class="work-card">
+        <p class="wc-label">Smart Home Platform</p>
+        <h3 class="wc-title">HomeCommand</h3>
+        <p class="wc-body">Custom residential automation dashboard built for a full smart-home integration project. Unified control of lighting, security, climate, and media systems through a single interface - designed for daily use by non-technical residents.</p>
+        <a class="wc-link" href="#">In Development</a>
+      </div>
+
+      <div class="work-card">
+        <p class="wc-label">Mail &amp; Fulfillment Services</p>
+        <h3 class="wc-title">Run the Mail</h3>
+        <p class="wc-body">Web platform for a Los Angeles print-and-mail service operation. Service pages, tiered pricing structure, customer intake and onboarding flow, and backend tools for managing mail receiving, scanning, forwarding, and small-batch fulfillment.</p>
+        <a class="wc-link" href="#">In Development</a>
+      </div>
+
+      <div class="work-card">
+        <p class="wc-label">Event Rentals</p>
+        <h3 class="wc-title">Casa Bravo</h3>
+        <p class="wc-body">Digital presence and booking system for a San Gabriel Valley party rental company. Inventory display across two service tiers (DIY drop-off + full-service), inquiry management, and local SEO architecture built for the SGV and Los Angeles metro market.</p>
+        <a class="wc-link" href="#">In Development</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="container">
+    <p class="sec-label">How We Build</p>
+    <h2 class="sec-title">Modern stack. <span>Proven process.</span></h2>
+    <div class="silver-line"></div>
+    <p class="sec-sub">Every project is version-controlled, deployed through a CI/CD pipeline, and handed off with documentation that actually explains itself.</p>
+    <div class="stack-grid">
+      <div class="stack-item">
+        <h4>Languages</h4>
+        <p>HTML &middot; CSS &middot; JavaScript &middot; TypeScript &middot; Python &middot; SQL</p>
+      </div>
+      <div class="stack-item">
+        <h4>Frameworks</h4>
+        <p>React &middot; Next.js &middot; Node.js &middot; Express &middot; Tailwind CSS</p>
+      </div>
+      <div class="stack-item">
+        <h4>Infrastructure</h4>
+        <p>Netlify &middot; Vercel &middot; Supabase &middot; Cloudflare &middot; GitHub Actions</p>
+      </div>
+      <div class="stack-item">
+        <h4>Integrations</h4>
+        <p>Stripe &middot; Shopify &middot; Notion API &middot; Meta Graph API &middot; Custom CMS</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta-band">
+  <div class="container">
+    <p class="sec-label">Let's Build</p>
+    <h2 class="sec-title">Have a project <span>in mind</span>?</h2>
+    <div class="silver-line"></div>
+    <p class="sec-sub">Tell us what you're building. We'll tell you how to make it great.</p>
+    <div style="margin-top:2rem;">
+      <a class="btn btn-primary" href="mailto:info@lionrose.ai">info@lionrose.ai</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">LionRose Entertainment Inc.</span>
+  <span class="footer-copy">&copy; 2026 LionRose Entertainment Inc.</span>
+  <span class="footer-small">Los Angeles, California &nbsp;&bull;&nbsp; 310.994.9025 &nbsp;&bull;&nbsp; info@lionrose.ai</span>
+</footer>
+
+</body>
+</html>
