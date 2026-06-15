@@ -59,6 +59,24 @@
     .ai-icon { font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--silver); }
     .ai-card h3 { font-family: 'Cinzel', serif; font-size: 0.93rem; letter-spacing: 0.1em; color: var(--silver); margin-bottom: 0.8rem; }
     .ai-card p { font-size: 0.87rem; color: #888880; line-height: 1.7; }
+    .lab-divider { margin: 5rem auto 4rem; text-align: center; }
+    .lab-divider .silver-line { margin: 1.4rem auto; }
+    .lab-divider .sec-sub { margin: 0 auto; text-align: center; }
+    .lab-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); }
+    .lab-pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 0 rgba(196,30,58,0.6); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(196,30,58,0.5); } 70% { box-shadow: 0 0 0 9px rgba(196,30,58,0); } 100% { box-shadow: 0 0 0 0 rgba(196,30,58,0); } }
+    .lab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .lab-card { background: var(--card-bg); border: 1px solid var(--border); padding: 2.2rem 2rem; position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+    .lab-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(to right, var(--red), var(--silver)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+    .lab-card:hover { transform: translateY(-5px); box-shadow: 0 14px 44px rgba(0,0,0,0.55); border-color: rgba(200,200,200,0.25); }
+    .lab-card:hover::before { transform: scaleX(1); }
+    .lab-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; gap: 1rem; }
+    .lab-card h3 { font-family: 'Cinzel', serif; font-size: 1.05rem; letter-spacing: 0.05em; color: var(--white); }
+    .lab-status { flex-shrink: 0; font-size: 0.55rem; letter-spacing: 0.16em; text-transform: uppercase; padding: 0.28rem 0.65rem; border: 1px solid var(--border); border-radius: 2px; color: var(--silver); white-space: nowrap; }
+    .lab-status.beta { color: var(--red); border-color: rgba(196,30,58,0.4); }
+    .lab-status.concept { color: var(--muted); }
+    .lab-tagline { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--silver); margin-bottom: 0.8rem; }
+    .lab-card p { font-size: 0.87rem; color: #888880; line-height: 1.7; }
     #services { background: var(--black); }
     .services-header { text-align: center; margin-bottom: 4rem; }
     .services-header .silver-line { margin: 1.4rem auto; }
@@ -179,6 +197,38 @@
       <div class="ai-card"><div class="ai-icon">&#8644;</div><h3>AI Integration</h3><p>Embedding AI into your existing software, platforms, and business processes. CRM automation, document intelligence, decision-support systems - we integrate without disruption.</p></div>
       <div class="ai-card"><div class="ai-icon">&#9670;</div><h3>AI Strategy &amp; Consulting</h3><p>Not sure where AI fits? We map your processes, identify high-value automation opportunities, and deliver a phased implementation plan that generates ROI from day one.</p></div>
       <div class="ai-card"><div class="ai-icon">&#9654;</div><h3>AI-Enhanced Media &amp; Production</h3><p>AI-powered content generation, intelligent post-production workflows, and distribution strategy. We accelerate creative output without sacrificing quality or brand voice.</p></div>
+    </div>
+    <div class="lab-divider">
+      <h2 class="sec-title" style="display:inline-flex;align-items:center;gap:0.7rem;"><span class="lab-pulse"></span>What We're <span>Building</span></h2>
+      <div class="silver-line"></div>
+      <p class="sec-sub">We don't just build AI for our clients. We build it for the real world. These are the products coming out of our studio right now.</p>
+    </div>
+    <div class="lab-grid">
+      <div class="lab-card">
+        <div class="lab-top"><h3>HomeCommand</h3><span class="lab-status">In Development</span></div>
+        <p class="lab-tagline">Your home, finally in command.</p>
+        <p>Snap a photo of anything broken and AI diagnoses the problem, estimates the fix, and tracks every repair across your property. A living command center for your home, room by room, issue by issue.</p>
+      </div>
+      <div class="lab-card">
+        <div class="lab-top"><h3>Free Money Finder</h3><span class="lab-status beta">Beta</span></div>
+        <p class="lab-tagline">The money you're already owed.</p>
+        <p>Billions in unclaimed cash and government benefits go unclaimed every year. We surface the federal programs and forgotten funds you qualify for, verified and free. No catch, no data for sale.</p>
+      </div>
+      <div class="lab-card">
+        <div class="lab-top"><h3>AdvisorAnalyzer</h3><span class="lab-status">In Development</span></div>
+        <p class="lab-tagline">Rotten Tomatoes for market predictions.</p>
+        <p>Pundits make bold calls and hope you forget the misses. We don't. AdvisorAnalyzer scores forecasters on what they actually got right, so you finally know whose predictions are worth your money.</p>
+      </div>
+      <div class="lab-card">
+        <div class="lab-top"><h3>Book-Keepr</h3><span class="lab-status">In Development</span></div>
+        <p class="lab-tagline">Bookkeeping on autopilot.</p>
+        <p>AI ingests every transaction, categorizes it, and keeps your accounts reconciled in real time. The books stay clean and closed, so you can stop dreading tax season and start running your business.</p>
+      </div>
+      <div class="lab-card">
+        <div class="lab-top"><h3>Study Buddy</h3><span class="lab-status concept">Concept</span></div>
+        <p class="lab-tagline">An AI study partner that never sleeps.</p>
+        <p>Homework tracking, custom study guides, and adaptive practice tests in one place. It learns where a student struggles and drills exactly those weak spots, turning study time into real results.</p>
+      </div>
     </div>
   </div>
 </section>
