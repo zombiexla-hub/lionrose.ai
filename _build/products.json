@@ -1,0 +1,156 @@
+{
+  "base_url": "https://lionrose.ai",
+  "section": {
+    "k": "What We're Building",
+    "title": "Products coming out of our <span class=\"g\">studio</span> right now.",
+    "lede": "We don't just build AI for our clients. We build it for the real world. These are the products coming out of our studio right now. Click any card to open the app or see how it works."
+  },
+  "products": [
+    {
+      "slug": "homecommand", "name": "HomeCommand", "status": "In Development", "status_class": "",
+      "has_detail": true, "external": false,
+      "thumb": "products/homecommand.svg", "thumb_kind": "tile",
+      "cta_card": "View project",
+      "card_tagline": "Your home, finally in command.",
+      "card_desc": "One AI command center for every repair, project, and to-do, with a live 3D view of every system in your property.",
+      "shot": "products/homecommand.svg", "shot_kind": "tile",
+      "meta_desc": "HomeCommand is one AI command center for every home repair, project, and to-do, with a live view of every system in your property. In development at LionRose.",
+      "og_image": "products/og-homecommand.png",
+      "tagline": "Your home, finally in command.",
+      "sub": "One command center for every repair, project, and to-do, with a live view of every system in your property.",
+      "h2": "Every system in your home, in <span class='g'>one place</span>.",
+      "paras": [
+        "HomeCommand turns the scattered reality of running a home into a single command center. Repairs, projects, maintenance, and to-dos live in one view, tracked from the moment they come up to the moment they are done.",
+        "A live model of the property sits at the center, so you can see the state of every system at a glance and act before small problems become expensive ones. It is built for daily use by people who are not technical."
+      ],
+      "feats": [["Command center","Every repair, project, and to-do in one tracked place."],["Live property view","See the state of every system at a glance."],["Guided by AI","Plain answers and next steps, no manual required."],["Built for anyone","Designed for daily use by non-technical residents."]],
+      "words": "HOME COMMAND,REPAIRS,PROJECTS,SYSTEMS,MAINTENANCE",
+      "cta_href": "mailto:info@lionrose.ai?subject=HomeCommand", "cta_label": "Get Early Access",
+      "cta_k": "Early Access", "cta_title": "Want in <span class='g'>early</span>?",
+      "cta_lede": "HomeCommand is in active development. Tell us about your home and we will bring you in as we open it up."
+    },
+    {
+      "slug": "free-money-finder", "name": "Free Money Finder", "status": "Live", "status_class": "live",
+      "has_detail": false, "external": true, "href": "https://free-money-finder.netlify.app",
+      "thumb": "products/fmf-app.png", "thumb_kind": "shot",
+      "cta_card": "Open the app",
+      "card_tagline": "The money you're already owed.",
+      "card_desc": "Billions in cash, benefits, and scholarships go unclaimed every year. We surface the verified programs you qualify for, free. No fees, no data sales, no catch."
+    },
+    {
+      "slug": "signal-noise", "name": "Signal / Noise", "status": "Beta", "status_class": "beta",
+      "has_detail": true, "external": false,
+      "thumb": "products/signal-noise-app.png", "thumb_kind": "shot",
+      "cta_card": "View project",
+      "card_tagline": "Who actually calls it right.",
+      "card_desc": "Hundreds of market predictions scored against reality, across dozens of big-name forecasters, so you know whose calls to trust.",
+      "shot": "products/signal-noise-app.png", "shot_kind": "shot",
+      "meta_desc": "Signal / Noise scores hundreds of market predictions from dozens of big-name forecasters against reality, every rating cited, so you know whose calls to trust.",
+      "og_image": "products/og-signal-noise.png",
+      "tagline": "Who actually calls it right.",
+      "sub": "Hundreds of market predictions scored against reality, so you know whose calls to trust.",
+      "h2": "Track records, <span class='g'>not talking points</span>.",
+      "paras": [
+        "Financial forecasters make bold calls every week. Signal / Noise scores those calls against what actually happened, so the loudest voice is not automatically the one you follow.",
+        "Dozens of big-name forecasters, thousands of predictions, every rating tied to a cited source. The strongest track records surface as signal. The rest is noise."
+      ],
+      "feats": [["Scored against reality","Every prediction checked against the outcome."],["Dozens of forecasters","Big names tracked side by side on one board."],["Every rating cited","Each score links back to the original call."],["Signal or noise","A clear read on whose calls have earned trust."]],
+      "words": "SIGNAL,NOISE,ACCURACY,FORECASTS,TRACK RECORD",
+      "cta_href": "mailto:info@lionrose.ai?subject=Signal%20/%20Noise%20beta", "cta_label": "Request Beta Access",
+      "cta_k": "Private Beta", "cta_title": "Signal / Noise is in <span class='g'>private beta</span>.",
+      "cta_lede": "The platform is live in a closed beta while we finish the public rollout. Reach out to get early access."
+    },
+    {
+      "slug": "book-keepr", "name": "Book-Keepr", "status": "In Development", "status_class": "",
+      "has_detail": true, "external": false,
+      "thumb": "products/book-keepr.svg", "thumb_kind": "tile",
+      "cta_card": "View project",
+      "card_tagline": "Bookkeeping on autopilot.",
+      "card_desc": "AI categorizes and reconciles every transaction, so your books stay clean and closed.",
+      "shot": "products/book-keepr.svg", "shot_kind": "tile",
+      "meta_desc": "Book-Keepr puts bookkeeping on autopilot. AI categorizes and reconciles every transaction to source records, so your books stay clean and close-ready. In development at LionRose.",
+      "og_image": "products/og-book-keepr.png",
+      "tagline": "Bookkeeping on autopilot.",
+      "sub": "AI categorizes and reconciles every transaction, so your books stay clean and closed.",
+      "h2": "Clean books, <span class='g'>closed on time</span>.",
+      "paras": [
+        "Book-Keepr reads every transaction, categorizes it, and reconciles it against your records without the manual grind. It matches deposits and payments to source documents down to the penny.",
+        "The result is a set of books that stay current and audit-ready, so closing the month stops being an event."
+      ],
+      "feats": [["Auto-categorize","Every transaction sorted the moment it lands."],["Real reconciliation","Matched to source records, to the penny."],["Always close-ready","Books stay current and audit-ready."],["Less manual grind","Spend time on decisions, not data entry."]],
+      "words": "BOOK KEEPR,LEDGER,RECONCILE,TRANSACTIONS,CLOSE",
+      "cta_href": "mailto:info@lionrose.ai?subject=Book-Keepr", "cta_label": "Get Early Access",
+      "cta_k": "Early Access", "cta_title": "Books that <span class='g'>keep themselves</span>.",
+      "cta_lede": "Book-Keepr is in active development. Tell us about your books and we will bring you in as we open it up."
+    },
+    {
+      "slug": "study-buddy", "name": "Study Buddy", "status": "In Development", "status_class": "",
+      "has_detail": true, "external": false,
+      "thumb": "products/study-buddy.svg", "thumb_kind": "tile",
+      "cta_card": "View project",
+      "card_tagline": "An AI study partner that never sleeps.",
+      "card_desc": "Real grades become rewards students actually want, with study help tuned to where each student struggles.",
+      "shot": "products/study-buddy.svg", "shot_kind": "tile",
+      "meta_desc": "Study Buddy turns real grades into rewards high-school students actually want, with study help tuned to where each student struggles. In development at LionRose.",
+      "og_image": "products/og-study-buddy.png",
+      "tagline": "A study partner that never sleeps.",
+      "sub": "Real grades become rewards students actually want, with help tuned to where each student struggles.",
+      "h2": "Turn effort into <span class='g'>real rewards</span>.",
+      "paras": [
+        "Study Buddy links real academic progress to rewards students actually care about. Grades earn points, points unlock rewards, and the loop keeps students coming back.",
+        "Underneath, it learns where each student struggles and focuses help there, so study time is spent on what moves the grade."
+      ],
+      "feats": [["Grades to rewards","Real progress unlocks rewards worth chasing."],["Targeted help","Study support aimed at each student's weak spots."],["Always on","A patient study partner available any hour."],["For high school","Built for the homework and study load of high-school students."]],
+      "words": "STUDY BUDDY,GRADES,REWARDS,HOMEWORK,PROGRESS",
+      "cta_href": "mailto:info@lionrose.ai?subject=Study%20Buddy", "cta_label": "Get Early Access",
+      "cta_k": "Early Access", "cta_title": "Study that <span class='g'>pays off</span>.",
+      "cta_lede": "Study Buddy is in active development. Reach out to help shape it and get early access for your student."
+    },
+    {
+      "slug": "valuation-verification-agent", "name": "Valuation Verification Agent", "status": "In Development", "status_class": "",
+      "has_detail": true, "external": false,
+      "thumb": "products/valuation-verification-agent.svg", "thumb_kind": "tile",
+      "cta_card": "View project",
+      "card_tagline": "A tool against volatility laundering.",
+      "card_desc": "Independent AI agents that test whether a public fund's reported value moves like reality, so trustees and investors see the risk they actually hold.",
+      "shot": "products/valuation-verification-agent.svg", "shot_kind": "tile",
+      "meta_desc": "The Valuation Verification Agent runs independent tests on whether a public fund's reported value moves like reality, so trustees and investors see the risk they actually hold.",
+      "og_image": "products/og-valuation-verification-agent.png",
+      "tagline": "A tool against volatility laundering.",
+      "sub": "Independent agents test whether a public fund's reported value moves like reality.",
+      "h2": "See the risk you <span class='g'>actually hold</span>.",
+      "paras": [
+        "Some public funds report values that look far smoother than the assets behind them. The Valuation Verification Agent runs independent tests on whether a fund's reported value moves the way reality does.",
+        "It gives trustees and investors a plain read on understated risk, so the number on the statement can be checked against the market it claims to reflect."
+      ],
+      "feats": [["Independent agents","Testing that does not rely on the fund's own math."],["Reality check","Compares reported value against how markets actually move."],["Understated risk, surfaced","Shows exposure that smooth reporting can hide."],["For trustees and investors","Built for the people accountable for the money."]],
+      "words": "VALUATION,VERIFICATION,RISK,PUBLIC FUNDS,REALITY",
+      "cta_href": "mailto:info@lionrose.ai?subject=Valuation%20Verification%20Agent", "cta_label": "Start a Conversation",
+      "cta_k": "Early Access", "cta_title": "Check the number against <span class='g'>reality</span>.",
+      "cta_lede": "The Valuation Verification Agent is in active development. If you oversee or invest in public funds, reach out."
+    },
+    {
+      "slug": "marker-studio", "name": "Marker Studio", "status": "In Development", "status_class": "",
+      "has_detail": true, "external": false,
+      "thumb": "products/marker-studio.svg", "thumb_kind": "tile",
+      "cta_card": "View project",
+      "card_tagline": "Every take, transcribed and marked.",
+      "card_desc": "AI transcription that drops speaker-labeled markers straight into Avid, so editors find any line in seconds. Proven in a working network-series edit bay.",
+      "shot": "products/marker-studio.svg", "shot_kind": "tile",
+      "meta_desc": "Marker Studio is AI transcription that drops speaker-labeled markers straight into Avid, so editors find any line in seconds. Proven in a working network-series edit bay.",
+      "og_image": "products/og-marker-studio.png",
+      "tagline": "Every take, transcribed and marked.",
+      "sub": "AI transcription that drops speaker-labeled markers straight into Avid, so editors find any line in seconds.",
+      "h2": "Find any line <span class='g'>in seconds</span>.",
+      "paras": [
+        "Marker Studio transcribes your footage and drops speaker-labeled markers straight into Avid. Instead of scrubbing takes, editors jump to the exact line they remember.",
+        "It is proven in a working network-series edit bay, and it installs as a native Mac application with everything it needs bundled in."
+      ],
+      "feats": [["AI transcription","Accurate transcripts across every take."],["Speaker-labeled markers","Markers dropped in and named by who is talking."],["Straight into Avid","Markers land in the timeline, ready to use."],["Proven in the bay","Running today in a network-series edit."]],
+      "words": "MARKER STUDIO,TRANSCRIBE,MARKERS,AVID,EDIT BAY",
+      "cta_href": "mailto:info@lionrose.ai?subject=Marker%20Studio", "cta_label": "Request Access",
+      "cta_k": "Request Access", "cta_title": "Cut faster with <span class='g'>markers that write themselves</span>.",
+      "cta_lede": "Marker Studio installs as a native Mac application. Reach out to request access for your edit bay."
+    }
+  ]
+}
