@@ -4,3 +4,6 @@
 .smbdelete*
 .smbdelete*
 .smbdelete*
+
+_stage/
+products/assets/
