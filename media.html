@@ -1,235 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Media Consulting | LionRose</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --black:    #0a0a0a;
-      --dark:     #1e1e1e;
-      --card-bg:  #252525;
-      --silver:   #d0d0d0;
-      --silver-lt:#f0f0f0;
-      --red:      #c41e3a;
-      --white:    #f0ece4;
-      --muted:    #888880;
-      --border:   rgba(200,200,200,0.13);
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--black); color: var(--white); font-family: 'Lato', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 3rem; background: #ffffff; border-bottom: 1px solid #e8e8e8; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
-    .nav-logo { font-family: 'Cinzel', serif; font-size: 1.15rem; letter-spacing: 0.15em; color: #111111; text-decoration: none; }
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
-    .nav-links a { color: #1a1a1a; text-decoration: none; font-size: 0.73rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--red); }
-    @keyframes up { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
-    .page-hero { padding: 10rem 2rem 6rem; background: var(--black); text-align: center; border-bottom: 1px solid var(--border); }
-    .back-link { margin-bottom: 1.5rem; animation: up 0.5s ease both; }
-    .back-link a { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .back-link a:hover { color: var(--silver); }
-    .page-icon { font-size: 1.8rem; color: var(--silver); margin-bottom: 0.8rem; animation: up 0.5s 0.06s ease both; }
-    .page-title { font-family: 'Cinzel', serif; font-size: clamp(2rem, 5vw, 3.8rem); font-weight: 900; letter-spacing: 0.06em; line-height: 1.15; color: var(--white); animation: up 0.5s 0.12s ease both; }
-    .page-title span { color: var(--silver); }
-    .divider { margin: 1.8rem auto; width: 50px; height: 1px; background: linear-gradient(to right, transparent, var(--silver), transparent); animation: up 0.5s 0.18s ease both; }
-    .hero-desc { max-width: 540px; margin: 0 auto; font-size: 1rem; color: #9a9490; animation: up 0.5s 0.22s ease both; }
-    .btn-group { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; animation: up 0.5s 0.28s ease both; }
-    .btn { padding: 0.85rem 2.2rem; font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; border: 1px solid; transition: all 0.25s; display: inline-block; cursor: pointer; }
-    .btn-primary { background: var(--silver); border-color: var(--silver); color: #0a0a0a; font-weight: 700; }
-    .btn-primary:hover { background: var(--silver-lt); }
-    .btn-secondary { background: transparent; border-color: var(--silver); color: var(--silver); }
-    .btn-secondary:hover { background: rgba(200,200,200,0.08); }
-    .container { max-width: 1100px; margin: 0 auto; }
-    section { padding: 6rem 2rem; }
-    .sec-label { font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--red); margin-bottom: 0.6rem; }
-    .sec-title { font-family: 'Cinzel', serif; font-size: clamp(1.7rem, 4vw, 2.6rem); font-weight: 600; color: var(--white); line-height: 1.15; }
-    .sec-title span { color: var(--silver); }
-    .sec-sub { margin-top: 1rem; max-width: 600px; color: var(--muted); font-size: 0.95rem; }
-    .silver-line { width: 48px; height: 2px; background: var(--silver); margin: 1.4rem 0; }
-    #svc-detail { background: var(--dark); }
-    .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 2rem; margin-top: 3.5rem; }
-    .detail-card { background: var(--card-bg); border: 1px solid var(--border); padding: 2.5rem; position: relative; overflow: hidden; }
-    .detail-card::after { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: linear-gradient(to bottom, var(--red), var(--silver)); transform: scaleY(0); transform-origin: top; transition: transform 0.35s; }
-    .detail-card:hover::after { transform: scaleY(1); }
-    .dc-icon { font-size: 1.4rem; color: var(--silver); margin-bottom: 1rem; }
-    .dc-title { font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 0.1em; color: var(--silver); margin-bottom: 0.8rem; }
-    .dc-body { font-size: 0.87rem; color: var(--muted); line-height: 1.8; }
-    .tag-list { margin-top: 1.2rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .tag { font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.22rem 0.6rem; border: 1px solid var(--border); color: var(--muted); }
-    #work { background: var(--black); }
-    .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; margin-top: 3.5rem; }
-    .work-card { background: var(--card-bg); border: 1px solid var(--border); padding: 2.2rem; transition: transform 0.2s; position: relative; }
-    .work-card:hover { transform: translateY(-3px); }
-    .work-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(to right, var(--red), var(--silver)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
-    .work-card:hover::before { transform: scaleX(1); }
-    .wc-label { font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); margin-bottom: 0.4rem; }
-    .wc-title { font-family: 'Cinzel', serif; font-size: 0.95rem; letter-spacing: 0.08em; color: var(--silver); margin-bottom: 0.8rem; }
-    .wc-body { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
-    .wc-link { display: inline-block; margin-top: 1.2rem; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--silver); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
-    .wc-link:hover { color: var(--silver-lt); border-color: var(--silver); }
-    /* Portfolio spotlight */
-    #portfolio { background: var(--dark); }
-    .portfolio-spotlight { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 3.5rem; }
-    @media (max-width: 700px) { .portfolio-spotlight { grid-template-columns: 1fr; } }
-    .ps-text .ps-name { font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 900; color: var(--white); letter-spacing: 0.06em; margin-bottom: 0.6rem; }
-    .ps-text .ps-role { font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); margin-bottom: 1.2rem; }
-    .ps-text p { font-size: 0.9rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
-    .ps-link { display: inline-block; margin-top: 0.8rem; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--silver); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 3px; transition: color 0.2s, border-color 0.2s; }
-    .ps-link:hover { color: var(--silver-lt); border-color: var(--silver); }
-    .ps-visual { background: var(--card-bg); border: 1px solid var(--border); padding: 3rem 2.5rem; text-align: center; }
-    .ps-visual .ps-initial { font-family: 'Cinzel', serif; font-size: 5rem; font-weight: 900; color: rgba(200,200,200,0.1); line-height: 1; }
-    .ps-visual .ps-site { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 1rem; }
-    #cta-band { background: var(--black); text-align: center; }
-    #cta-band .silver-line { margin: 1.4rem auto; }
-    #cta-band .sec-sub { margin: 0 auto 2rem; text-align: center; }
-    footer { padding: 2rem 3rem; border-top: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; }
-    .footer-name { font-family: 'Cinzel', serif; font-size: 0.88rem; letter-spacing: 0.15em; color: var(--silver); }
-    .footer-copy { font-size: 0.7rem; color: #aaa; letter-spacing: 0.06em; }
-    .footer-small { font-size: 0.62rem; color: #888; letter-spacing: 0.06em; margin-top: 0.2rem; }
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: var(--black); }
-    ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
-    @media (max-width: 640px) { nav { padding: 1rem 1.5rem; } .nav-links { gap: 1rem; } .nav-links a { font-size: 0.65rem; } .detail-grid { grid-template-columns: 1fr; } .work-grid { grid-template-columns: 1fr; } }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Media Consulting | LionRose</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=JetBrains+Mono:wght@400;500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="lionrose-green.css" />
 </head>
 <body>
 
+
+<div class="rail" aria-hidden="true">
+  <span class="cap top">LIONROSE // MEDIA CONSULTING</span>
+  <div class="track"></div><div class="node"></div>
+  <span class="cap">34.05N // 118.24W // LA</span>
+</div>
+
 <nav>
-  <a class="nav-logo" href="/">LionRose</a>
-  <ul class="nav-links">
+  <a class="logo" href="index.html">Lion<b>Rose</b></a>
+  <ul class="navlinks">
     <li><a href="web.html">Web Dev</a></li>
     <li><a href="hr.html">HR</a></li>
     <li><a href="media.html" class="active">Media</a></li>
     <li><a href="production.html">Production</a></li>
-    <li><a href="/#contact">Contact</a></li>
+    <li class="keep"><a class="navcta" href="index.html#contact">Contact</a></li>
   </ul>
 </nav>
 
-<div class="page-hero">
-  <div class="hero-content">
-    <p class="back-link"><a href="/">&#8592; LionRose</a></p>
-    <p class="page-icon">&#9670;</p>
-    <h1 class="page-title">Your story.<br><span>Told with precision.</span></h1>
-    <div class="divider"></div>
-    <p class="hero-desc">Brand strategy, content direction, platform positioning, and campaign development. We help businesses, artists, and organizations find their voice - and make sure it carries.</p>
-    <div class="btn-group">
-      <a class="btn btn-primary" href="mailto:info@lionrose.ai">Start a Conversation</a>
-      <a class="btn btn-secondary" href="/#clients">See Clients</a>
-    </div>
-  </div>
-</div>
-
-<section id="svc-detail">
-  <div class="container">
-    <p class="sec-label">What We Do</p>
-    <h2 class="sec-title">Strategy, content, <span>and everything between</span>.</h2>
-    <div class="silver-line"></div>
-    <p class="sec-sub">Media consulting isn't about posting more. It's about saying the right thing, in the right place, to the right people - consistently.</p>
-    <div class="detail-grid">
-
-      <div class="detail-card">
-        <div class="dc-icon">&#9670;</div>
-        <h3 class="dc-title">Brand Strategy</h3>
-        <p class="dc-body">Before content comes clarity. We build brand foundations: positioning statements, voice and tone guidelines, visual identity direction, and the messaging architecture that makes every piece of content feel coherent. We work with companies at every stage - from early-stage definition to mature brand audits and repositioning.</p>
-        <ul class="tag-list"><li class="tag">Positioning</li><li class="tag">Voice &amp; Tone</li><li class="tag">Identity Direction</li><li class="tag">Messaging Architecture</li><li class="tag">Brand Audits</li></ul>
-      </div>
-
-      <div class="detail-card">
-        <div class="dc-icon">&#128196;</div>
-        <h3 class="dc-title">Content Direction</h3>
-        <p class="dc-body">Content without strategy is noise. We develop editorial systems, content calendars, creative briefs, and production pipelines that generate consistent, on-brand output at scale. We're hands-on with creative direction and hands-off with the parts your team owns. The goal is a system that runs without us.</p>
-        <ul class="tag-list"><li class="tag">Editorial Strategy</li><li class="tag">Content Calendars</li><li class="tag">Creative Briefs</li><li class="tag">Production Pipelines</li><li class="tag">Content Systems</li></ul>
-      </div>
-
-      <div class="detail-card">
-        <div class="dc-icon">&#128241;</div>
-        <h3 class="dc-title">Platform Positioning</h3>
-        <p class="dc-body">Each platform has its own language, algorithm, and audience. TikTok is not Instagram. Instagram is not LinkedIn. We develop platform-specific strategies - content format, cadence, community management, and growth tactics - that align with how each platform actually works, not how you wish it did.</p>
-        <ul class="tag-list"><li class="tag">TikTok Strategy</li><li class="tag">Instagram</li><li class="tag">YouTube</li><li class="tag">LinkedIn</li><li class="tag">Algorithm Alignment</li></ul>
-      </div>
-
-      <div class="detail-card">
-        <div class="dc-icon">&#128293;</div>
-        <h3 class="dc-title">Campaign Development</h3>
-        <p class="dc-body">From concept through execution and post-campaign reporting. We develop multi-platform campaigns with clear objectives, defined audiences, and measurable outcomes. Launch campaigns, brand awareness pushes, product drops, event campaigns - we build the strategy, manage the creative, and measure what matters.</p>
-        <ul class="tag-list"><li class="tag">Campaign Strategy</li><li class="tag">Creative Direction</li><li class="tag">Cross-Platform Execution</li><li class="tag">Performance Reporting</li></ul>
-      </div>
-
+<section class="hero med" id="hero">
+  <canvas data-words="BRAND STRATEGY,CONTENT DIRECTION,PLATFORMS,CAMPAIGNS,POSITIONING"></canvas>
+  <div class="hero-vig"></div>
+  <div class="hero-copy">
+    <a class="back" href="index.html">&#8592; LionRose</a>
+    <span class="eyebrow" style="margin-top:1.2rem;"><i></i>Media Consulting</span>
+    <h1>Your story. Told with precision.</h1>
+    <p class="sub">Brand strategy, content direction, platform positioning, and campaign development. We help businesses, artists, and organizations find their voice - and make sure it carries.</p>
+    <div class="hero-btns">
+      <a class="btn btn-p" href="mailto:info@lionrose.ai">Start a Conversation</a>
+      <a class="btn btn-g" href="index.html#clients">See Clients</a>
     </div>
   </div>
 </section>
 
+<div class="divider"><span class="ln"></span><span class="tag">// What We Do</span><span class="ln r"></span></div>
+<section id="svc">
+  <div class="wrap reveal">
+    <span class="k"><i></i>What We Do</span>
+    <h2 class="title">Strategy, content, <span class="g">and everything between</span>.</h2>
+    <p class="lede">Media consulting isn't about posting more. It's about saying the right thing, in the right place, to the right people - consistently.</p>
+    <div class="cards wide">
+      <div class="card"><div class="ml">// brand strategy</div><h3 class="dc">Brand Strategy</h3><p>Before content comes clarity. We build brand foundations: positioning statements, voice and tone guidelines, visual identity direction, and the messaging architecture that makes every piece of content feel coherent. We work with companies at every stage - from early-stage definition to mature brand audits and repositioning.</p><div class="tags"><span class="tag">Positioning</span><span class="tag">Voice &amp; Tone</span><span class="tag">Identity Direction</span><span class="tag">Messaging Architecture</span><span class="tag">Brand Audits</span></div></div>
+      <div class="card"><div class="ml">// content direction</div><h3 class="dc">Content Direction</h3><p>Content without strategy is noise. We develop editorial systems, content calendars, creative briefs, and production pipelines that generate consistent, on-brand output at scale. We're hands-on with creative direction and hands-off with the parts your team owns. The goal is a system that runs without us.</p><div class="tags"><span class="tag">Editorial Strategy</span><span class="tag">Content Calendars</span><span class="tag">Creative Briefs</span><span class="tag">Production Pipelines</span><span class="tag">Content Systems</span></div></div>
+      <div class="card"><div class="ml">// platform positioning</div><h3 class="dc">Platform Positioning</h3><p>Each platform has its own language, algorithm, and audience. TikTok is not Instagram. Instagram is not LinkedIn. We develop platform-specific strategies - content format, cadence, community management, and growth tactics - that align with how each platform actually works, not how you wish it did.</p><div class="tags"><span class="tag">TikTok Strategy</span><span class="tag">Instagram</span><span class="tag">YouTube</span><span class="tag">LinkedIn</span><span class="tag">Algorithm Alignment</span></div></div>
+      <div class="card"><div class="ml">// campaign development</div><h3 class="dc">Campaign Development</h3><p>From concept through execution and post-campaign reporting. We develop multi-platform campaigns with clear objectives, defined audiences, and measurable outcomes. Launch campaigns, brand awareness pushes, product drops, event campaigns - we build the strategy, manage the creative, and measure what matters.</p><div class="tags"><span class="tag">Campaign Strategy</span><span class="tag">Creative Direction</span><span class="tag">Cross-Platform Execution</span><span class="tag">Performance Reporting</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span class="ln"></span><span class="tag">// Select Work</span><span class="ln r"></span></div>
 <section id="work">
-  <div class="container">
-    <p class="sec-label">Select Work</p>
-    <h2 class="sec-title">Projects built on <span>strategy and craft</span>.</h2>
-    <div class="silver-line"></div>
-    <div class="work-grid">
-
-      <div class="work-card">
-        <p class="wc-label">LionRose Original &mdash; Social Content</p>
-        <h3 class="wc-title">Feathered Flicks</h3>
-        <p class="wc-body">A LionRose-built short-form content brand focused on bird photography and wildlife footage. Distributed across TikTok and Instagram on a 3x/week publishing cadence. Built from zero using intentional content strategy, precise editing, and consistent visual identity. An active proof of concept for the methodology we bring to client work.</p>
-        <a class="wc-link" href="production.html">See Production Details &#8599;</a>
-      </div>
-
-      <div class="work-card">
-        <p class="wc-label">LionRose Original &mdash; Brand &amp; Art</p>
-        <h3 class="wc-title">Last Payphone</h3>
-        <p class="wc-body">A multi-platform photography and storytelling brand built around a long-form documentary project documenting America's vanishing payphone infrastructure. Includes brand identity, editorial direction, art book production, automated social publishing, and a layered ARG campaign woven through the web presence.</p>
-        <a class="wc-link" href="https://lastpayphone.com" target="_blank">lastpayphone.com &#8599;</a>
-      </div>
-
-      <div class="work-card">
-        <p class="wc-label">Entertainment Sector</p>
-        <h3 class="wc-title">Production Company Consulting</h3>
-        <p class="wc-body">Brand and content consulting for television production companies navigating platform transitions and digital-first content strategy. Work spanning audience development, brand positioning, and content systems for a client roster that includes some of unscripted TV's most active companies.</p>
-      </div>
-
+  <div class="wrap reveal">
+    <span class="k"><i></i>Select Work</span>
+    <h2 class="title">Projects built on <span class="g">strategy and craft</span>.</h2>
+    <div class="cards">
+      <div class="card"><div class="ml">LionRose Original - Social Content</div><h3 class="dc">Feathered Flicks</h3><p>A LionRose-built short-form content brand focused on bird photography and wildlife footage. Distributed across TikTok and Instagram on a 3x/week publishing cadence. Built from zero using intentional content strategy, precise editing, and consistent visual identity. An active proof of concept for the methodology we bring to client work.</p><a class="golink" href="production.html">See Production Details &#8599;</a></div>
+      <div class="card"><div class="ml">LionRose Original - Brand &amp; Art</div><h3 class="dc">Last Payphone</h3><p>A multi-platform photography and storytelling brand built around a long-form documentary project documenting America's vanishing payphone infrastructure. Includes brand identity, editorial direction, art book production, automated social publishing, and a layered ARG campaign woven through the web presence.</p><a class="golink" href="https://lastpayphone.com" target="_blank" rel="noopener">lastpayphone.com &#8599;</a></div>
+      <div class="card"><div class="ml">Entertainment Sector</div><h3 class="dc">Production Company Consulting</h3><p>Brand and content consulting for television production companies navigating platform transitions and digital-first content strategy. Work spanning audience development, brand positioning, and content systems for a client roster that includes some of unscripted TV's most active companies.</p></div>
     </div>
   </div>
 </section>
 
-<section id="portfolio">
-  <div class="container">
-    <p class="sec-label">Executive Creative</p>
-    <h2 class="sec-title">The work behind <span>the work</span>.</h2>
-    <div class="silver-line"></div>
-    <div class="portfolio-spotlight">
-      <div class="ps-text">
-        <p class="ps-name">Leonardo Genzon</p>
-        <p class="ps-role">Executive Creative Director &mdash; LionRose</p>
+<div class="divider"><span class="ln"></span><span class="tag">// Executive Creative</span><span class="ln r"></span></div>
+<section id="exec">
+  <div class="wrap reveal">
+    <span class="k"><i></i>Executive Creative</span>
+    <h2 class="title">The work behind <span class="g">the work</span>.</h2>
+    <div class="feature">
+      <div>
+        <h3 style="font-family:'Cinzel',serif;font-size:1.7rem;color:#fff;letter-spacing:0.04em;margin-bottom:0.4rem;">Leonardo Genzon</h3>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:0.66rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--green);margin-bottom:1.2rem;">Executive Creative Director - LionRose</p>
         <p>The media consulting practice is grounded in direct creative experience - not just theory. Leonardo Genzon is a photographer, director, and content creator whose personal work spans documentary photography, short-form video, and multimedia storytelling.</p>
         <p>The portfolio at leonardogenzon.com represents the creative perspective that informs every brand and content engagement LionRose takes on. If you want to understand the creative foundation of this practice, start there.</p>
-        <a class="ps-link" href="https://leonardogenzon.com" target="_blank">leonardogenzon.com &#8599;</a>
+        <a class="golink" href="https://leonardogenzon.com" target="_blank" rel="noopener">leonardogenzon.com &#8599;</a>
       </div>
-      <div class="ps-visual">
-        <div class="ps-initial">LG</div>
-        <p class="ps-site">leonardogenzon.com</p>
-      </div>
+      <div class="fv"><div class="init">LG</div><div class="site">leonardogenzon.com</div></div>
     </div>
   </div>
 </section>
 
-<section id="cta-band">
-  <div class="container">
-    <p class="sec-label">Shape Your Narrative</p>
-    <h2 class="sec-title">Let's build something <span>worth watching</span>.</h2>
-    <div class="silver-line"></div>
-    <p class="sec-sub">Whether you're launching a brand, relaunching one, or building a content engine from scratch - we know how to make it work.</p>
-    <div style="margin-top:2rem;">
-      <a class="btn btn-primary" href="mailto:info@lionrose.ai">info@lionrose.ai</a>
-    </div>
+<div class="divider"><span class="ln"></span><span class="tag">// Shape Your Narrative</span><span class="ln r"></span></div>
+<section id="cta">
+  <div class="wrap reveal">
+    <span class="k"><i></i>Shape Your Narrative</span>
+    <h2 class="title">Let's build something <span class="g">worth watching</span>.</h2>
+    <p class="lede">Whether you're launching a brand, relaunching one, or building a content engine from scratch - we know how to make it work.</p>
+    <div style="margin-top:2rem;"><a class="btn btn-p" href="mailto:info@lionrose.ai">info@lionrose.ai</a></div>
   </div>
 </section>
 
 <footer>
-  <span class="footer-name">LionRose Entertainment Inc.</span>
-  <span class="footer-copy">&copy; 2026 LionRose Entertainment Inc.</span>
-  <span class="footer-small">Los Angeles, California &nbsp;&bull;&nbsp; 310.994.9025 &nbsp;&bull;&nbsp; info@lionrose.ai</span>
+  <div class="status"><span>SYSTEM: LIONROSE // MEDIA CONSULTING</span><span>//</span><span>STATUS: <span class="on">ONLINE</span></span><span>//</span><span>LOS ANGELES, CA</span></div>
+  <div class="fnav"><a href="index.html">Home</a><a href="web.html">Web Development</a><a href="hr.html">Human Resources</a><a href="media.html">Media</a><a href="production.html">Production</a></div>
+  <div class="fname">LionRose Entertainment Inc.</div>
 </footer>
 
+<script src="lionrose-green.js"></script>
 </body>
 </html>
