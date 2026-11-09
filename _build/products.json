@@ -69,6 +69,54 @@
       "card_desc": "Billions in cash, benefits, and scholarships go unclaimed every year. We surface the verified programs you qualify for, free. No fees, no data sales, no catch."
     },
     {
+      "slug": "verity",
+      "name": "Verity",
+      "status": "In Daily Use",
+      "status_class": "live",
+      "has_detail": true,
+      "external": false,
+      "thumb": "products/verity.svg",
+      "thumb_kind": "tile",
+      "cta_card": "View project",
+      "card_tagline": "Three priorities. Every night.",
+      "card_desc": "An AI chief of staff that reads your projects, calendar, and email, then delivers a two-minute brief with tomorrow's three priorities.",
+      "shot": "products/verity.svg",
+      "shot_kind": "tile",
+      "meta_desc": "Verity is an AI chief of staff that reads your projects, calendar, and email, then delivers a two-minute brief with tomorrow's three priorities. In daily use at LionRose.",
+      "og_image": "products/og-verity.png",
+      "tagline": "Three priorities. Every night.",
+      "sub": "Reads your projects, calendar, and email, then hands you tomorrow's three priorities in a two-minute brief.",
+      "h2": "Every night, the <span class='g'>right three</span>.",
+      "paras": [
+        "Verity is an AI chief of staff. Each evening it reads every project, the next day's calendar, and the inbox, then picks the three things that matter most tomorrow. Everything else stays visible, but off the critical path.",
+        "It leads with whatever is waiting on you, names anything that has gone stale, and keeps the whole picture in one source of truth. It runs every day inside LionRose."
+      ],
+      "feats": [
+        [
+          "Nightly brief",
+          "Tomorrow's top three, readable in two minutes."
+        ],
+        [
+          "Reads everything",
+          "Projects, calendar, and email in one pass."
+        ],
+        [
+          "Blockers first",
+          "What only you can unblock leads every brief."
+        ],
+        [
+          "Stale gets named",
+          "Work that stops moving is called out by name."
+        ]
+      ],
+      "words": "VERITY,CHIEF OF STAFF,PRIORITIES,BRIEF,FOCUS",
+      "cta_href": "mailto:info@lionrose.ai?subject=Verity",
+      "cta_label": "Start a Conversation",
+      "cta_k": "In Daily Use",
+      "cta_title": "Want a chief of staff <span class='g'>like this</span>?",
+      "cta_lede": "Verity runs every day inside LionRose. If you want one built around your work, reach out."
+    },
+    {
       "slug": "signal-noise",
       "name": "Signal / Noise",
       "status": "Beta",
