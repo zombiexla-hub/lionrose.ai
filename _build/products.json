@@ -119,8 +119,8 @@
     {
       "slug": "book-keepr",
       "name": "Book-Keepr",
-      "status": "In Development",
-      "status_class": "",
+      "status": "In Testing",
+      "status_class": "beta",
       "has_detail": true,
       "external": false,
       "thumb": "products/book-keepr.svg",
@@ -130,7 +130,7 @@
       "card_desc": "AI categorizes and reconciles every transaction, so your books stay clean and closed.",
       "shot": "products/book-keepr.svg",
       "shot_kind": "tile",
-      "meta_desc": "Book-Keepr puts bookkeeping on autopilot. AI categorizes and reconciles every transaction to source records, so your books stay clean and close-ready. In development at LionRose.",
+      "meta_desc": "Book-Keepr puts bookkeeping on autopilot. AI categorizes and reconciles every transaction to source records, so your books stay clean and close-ready. In testing at LionRose.",
       "og_image": "products/og-book-keepr.png",
       "tagline": "Bookkeeping on autopilot.",
       "sub": "AI categorizes and reconciles every transaction, so your books stay clean and closed.",
@@ -160,9 +160,9 @@
       "words": "BOOK KEEPR,LEDGER,RECONCILE,TRANSACTIONS,CLOSE",
       "cta_href": "mailto:info@lionrose.ai?subject=Book-Keepr",
       "cta_label": "Get Early Access",
-      "cta_k": "Early Access",
+      "cta_k": "In Testing",
       "cta_title": "Books that <span class='g'>keep themselves</span>.",
-      "cta_lede": "Book-Keepr is in active development. Tell us about your books and we will bring you in as we open it up."
+      "cta_lede": "Book-Keepr is in testing now. Tell us about your books and we will bring you in as we open it up."
     },
     {
       "slug": "study-buddy",
@@ -414,38 +414,38 @@
       "thumb": "products/predictor.svg",
       "thumb_kind": "tile",
       "cta_card": "View project",
-      "card_tagline": "Price the odds before you play them.",
-      "card_desc": "A decision engine for sports prediction markets. It checks live prices against model odds, counts every fee, and sizes each position to survive losing streaks.",
+      "card_tagline": "Know the odds before you commit.",
+      "card_desc": "A prediction engine that weighs live prices against independent probability models, counts every cost, and shows where a real edge exists.",
       "shot": "products/predictor.svg",
       "shot_kind": "tile",
-      "meta_desc": "Predictor is a decision engine for sports prediction markets. It checks live prices against model odds, counts every fee, and sizes positions to survive losing streaks. In development at LionRose.",
+      "meta_desc": "Predictor is a prediction engine that weighs live prices against independent probability models and every cost, so each decision rests on a proven edge. In development at LionRose.",
       "og_image": "products/og-predictor.png",
-      "tagline": "Price the odds before you play them.",
-      "sub": "Live market prices checked against model odds, with every fee counted.",
+      "tagline": "Know the odds before you commit.",
+      "sub": "Live prices weighed against independent probability models, with every cost counted.",
       "h2": "Edge you can <span class='g'>prove</span>.",
       "paras": [
-        "Predictor compares live prediction-market prices with independent win-probability models, then works out whether a contract is worth buying once fees are counted. On heavy favorites, small fees decide the trade, so they are measured, not guessed.",
-        "Every position is sized to survive a losing streak, and every trade lands in a ledger that shows whether the edge is real."
+        "Predictor compares live prices with independent probability models, then works out whether a call is worth making once every cost is counted. Small costs decide close calls, so they are measured, not guessed.",
+        "Every decision is sized to survive a losing streak, and every outcome lands in a ledger that shows whether the edge is real."
       ],
       "feats": [
         [
           "Live scanner",
-          "In-game prices checked against win-probability models."
+          "Prices checked against probability models in real time."
         ],
         [
-          "Fee-aware math",
-          "Break-even odds after every fee, per platform."
+          "Cost-aware math",
+          "Break-even odds after every fee."
         ],
         [
           "Disciplined sizing",
-          "Position caps built to survive losing streaks."
+          "Limits built to survive losing streaks."
         ],
         [
           "Proof ledger",
-          "Every trade logged to show whether the edge holds."
+          "Every call logged to show whether the edge holds."
         ]
       ],
-      "words": "PREDICTOR,ODDS,EDGE,LIVE PRICES,LEDGER",
+      "words": "PREDICTOR,PROBABILITY,EDGE,LIVE PRICES,LEDGER",
       "cta_href": "mailto:info@lionrose.ai?subject=Predictor",
       "cta_label": "Start a Conversation",
       "cta_k": "In Development",
